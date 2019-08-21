@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="GitlabCIHelper:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/GitlabCIHelper_jar</output-path>
+    <root id="archive" name="GitlabCIHelper.jar">
+      <element id="module-output" name="GitlabCIHelper" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/gson-2.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/okio-1.15.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/okhttp-3.12.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/rxjava-2.2.10.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/retrofit-2.6.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/rxjavafx-2.1.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/okhttp-sse-3.12.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/converter-gson-2.3.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/adapter-rxjava2-2.6.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/reactive-streams-1.0.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/logging-interceptor-3.3.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

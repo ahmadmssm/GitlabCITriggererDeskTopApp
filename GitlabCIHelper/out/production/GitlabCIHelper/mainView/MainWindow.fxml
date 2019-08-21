@@ -1,0 +1,70 @@
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane
+        fx:controller="mainView.MainWindowView"
+        fx:id="rootView"
+        xmlns:fx="http://javafx.com/fxml"
+        alignment="center">
+    <GridPane
+            hgap="10" vgap="10"
+            alignment="center">
+        <Button
+                fx:id="resetGitlabConfigsButton"
+                maxWidth="Infinity"
+                text="Reload Gitlab profile settings"
+                onAction="#onReloadGitlabProfileSettingsButtonClicked"
+                GridPane.columnIndex="0"
+                focusTraversable="false"
+                GridPane.rowIndex="1"/>
+        <HBox spacing="25"
+              alignment="center"
+              GridPane.columnIndex="0"
+              GridPane.rowIndex="2">
+            <TextField
+                    fx:id="projectNameTextField"
+                    disable="true"
+                    maxWidth="Infinity"
+                    promptText="Project name"/>
+            <TextField
+                    fx:id="projectIdTextField"
+                    disable="true"
+                    maxWidth="Infinity"
+                    promptText="Project ID"/>
+        </HBox>
+        <ListView
+                fx:id="projectsListView"
+                maxWidth="Infinity"
+                maxHeight="175"
+                GridPane.columnIndex="0"
+                GridPane.rowIndex="7"/>
+        <Button
+                fx:id="debugVersionButton"
+                maxWidth="Infinity"
+                text="Set debug version"
+                onAction="#onDebugVersionButtonClicked"
+                GridPane.columnIndex="0"
+                GridPane.rowIndex="9"/>
+        <HBox spacing="10"
+              alignment="center"
+              GridPane.columnIndex="0"
+              GridPane.rowIndex="10">
+            <Button
+                    fx:id="majorReleaseVersionButton"
+                    text="Set major version"
+                    onAction="#onMajorVersionButtonClicked"/>
+            <Button
+                    fx:id="minorReleaseVersionButton"
+                    text="Set minor version"
+                    onAction="#onMinorVersionButtonClicked"/>
+            <Button
+                    fx:id="fixReleaseVersionButton"
+                    text="Set fix version"
+                    onAction="#onFixVersionButtonClicked"/>
+        </HBox>
+    </GridPane>
+</StackPane>

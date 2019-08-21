@@ -1,0 +1,5 @@
+1. Fill the change log file inside Android studio project (Located at the project root).
+2. Open Gitlap desktop helper application.
+3. Choose your target project.
+4. Choose your build mode (Debug/Release(Major, Minor, Fix)) (Important: Do this step before pushing your code to Gtilab to enable and trigger the pipeline).
+5. Finally, Merge/Push your changes/updates to the develop branch.
