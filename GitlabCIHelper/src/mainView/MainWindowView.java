@@ -22,9 +22,12 @@ public class MainWindowView implements IMainWindowView, Initializable {
 
     @FXML private StackPane rootView;
     @FXML private Button resetGitlabConfigsButton;
-    @FXML private Button fixReleaseVersionButton;
-    @FXML private Button minorReleaseVersionButton;
-    @FXML private Button majorReleaseVersionButton;
+    @FXML private Button majorInternalReleaseVersionButton;
+    @FXML private Button minorInternalReleaseVersionButton;
+    @FXML private Button fixInternalReleaseVersionButton;
+    @FXML private Button majorCustomerReleaseVersionButton;
+    @FXML private Button minorCustomerReleaseVersionButton;
+    @FXML private Button fixCustomerReleaseVersionButton;
     @FXML private Button debugVersionButton;
     @FXML private TextField projectNameTextField;
     @FXML private TextField projectIdTextField;
@@ -49,29 +52,50 @@ public class MainWindowView implements IMainWindowView, Initializable {
     // Button click actions
     public void onDebugVersionButtonClicked() {
         if (projectIdTextField.getText() != null) {
-            long projectId = Integer.valueOf(projectIdTextField.getText().trim());
+            long projectId = Long.parseLong(projectIdTextField.getText().trim());
             presenter.configurePipelineForDebugMode(projectId);
         }
     }
 
-    public void onMajorVersionButtonClicked() {
+    public void onInternalMajorVersionButtonClicked() {
         if (projectIdTextField.getText() != null) {
-            long projectId = Integer.valueOf(projectIdTextField.getText().trim());
-            presenter.configurePipelineForMajorReleaseMode(projectId);
+            long projectId = Long.parseLong(projectIdTextField.getText().trim());
+            presenter.configurePipelineForInternalMajorReleaseMode(projectId);
         }
     }
 
-    public void onMinorVersionButtonClicked() {
+    public void onInternalMinorVersionButtonClicked() {
         if (projectIdTextField.getText() != null) {
-            long projectId = Integer.valueOf(projectIdTextField.getText().trim());
-            presenter.configurePipelineForMinorReleaseMode(projectId);
+            long projectId = Long.parseLong(projectIdTextField.getText().trim());
+            presenter.configurePipelineForInternalMinorReleaseMode(projectId);
         }
     }
 
-    public void onFixVersionButtonClicked() {
+    public void onInternalFixVersionButtonClicked() {
         if (projectIdTextField.getText() != null) {
-            long projectId = Integer.valueOf(projectIdTextField.getText().trim());
-            presenter.configurePipelineForFixReleaseMode(projectId);
+            long projectId = Long.parseLong(projectIdTextField.getText().trim());
+            presenter.configurePipelineForInternalFixReleaseMode(projectId);
+        }
+    }
+    //
+    public void onCustomerMajorVersionButtonClicked() {
+        if (projectIdTextField.getText() != null) {
+            long projectId = Long.parseLong(projectIdTextField.getText().trim());
+            presenter.configurePipelineForCustomerMajorReleaseMode(projectId);
+        }
+    }
+
+    public void onCustomerMinorVersionButtonClicked() {
+        if (projectIdTextField.getText() != null) {
+            long projectId = Long.parseLong(projectIdTextField.getText().trim());
+            presenter.configurePipelineForCustomerMinorReleaseMode(projectId);
+        }
+    }
+
+    public void onCustomerFixVersionButtonClicked() {
+        if (projectIdTextField.getText() != null) {
+            long projectId = Long.parseLong(projectIdTextField.getText().trim());
+            presenter.configurePipelineForCustomerFixReleaseMode(projectId);
         }
     }
 
@@ -238,8 +262,12 @@ public class MainWindowView implements IMainWindowView, Initializable {
     private void disableButtons(boolean disabled) {
         resetGitlabConfigsButton.setDisable(disabled);
         debugVersionButton.setDisable(disabled);
-        majorReleaseVersionButton.setDisable(disabled);
-        minorReleaseVersionButton.setDisable(disabled);
-        fixReleaseVersionButton.setDisable(disabled);
+        majorInternalReleaseVersionButton.setDisable(disabled);
+        minorInternalReleaseVersionButton.setDisable(disabled);
+        fixInternalReleaseVersionButton.setDisable(disabled);
+        //
+        majorCustomerReleaseVersionButton.setDisable(disabled);
+        minorCustomerReleaseVersionButton.setDisable(disabled);
+        fixCustomerReleaseVersionButton.setDisable(disabled);
     }
 }

@@ -13,12 +13,16 @@ public interface Constants {
 
     @interface APK_MODE {
         String DEBUG = "DEBUG";
-        String RELEASE = "RELEASE";
+        String INTERNAL_RELEASE = "INTERNAL_RELEASE";
+        String PRODUCTION_RELEASE = "PRODUCTION_RELEASE";
     }
 
     @interface RELEASE_MODE {
-        String MAJOR = "MAJOR";
-        String MINOR = "MINOR";
-        String FIX = "FIX";
+        String INTERNAL_MAJOR = "INTERNAL_MAJOR";
+        String INTERNAL_MINOR = "INTERNAL_MINOR";
+        String INTERNAL_FIX = "INTERNAL_FIX";
+        String CUSTOMER_MAJOR = "CUSTOMER_MAJOR";
+        String CUSTOMER_MINOR = "CUSTOMER_MINOR";
+        String CUSTOMER_FIX = "CUSTOMER_FIX";
     }
 }

@@ -20,9 +20,9 @@ public abstract class RetrofitConfigurator {
     protected Builder getOkHttpBuilder() {
         int timeOut = getDefaultTimeOut();
         return new Builder()
-                .connectTimeout((long)timeOut, TimeUnit.SECONDS)
-                .writeTimeout((long)timeOut, TimeUnit.SECONDS)
-                .readTimeout((long)timeOut, TimeUnit.SECONDS);
+                .connectTimeout(timeOut, TimeUnit.SECONDS)
+                .writeTimeout(timeOut, TimeUnit.SECONDS)
+                .readTimeout(timeOut, TimeUnit.SECONDS);
     }
 
     protected abstract int getDefaultTimeOut();

@@ -69,19 +69,35 @@ public class RestClient {
         return setEnvironmentVariable(projectId, Constants.GITLAB_ENV_VARS.RELEASE_MODE, "-");
     }
 
-    public final Completable setReleaseMode(long projectId) {
-        return setEnvironmentVariable(projectId, Constants.GITLAB_ENV_VARS.PACKAGE_FOR, Constants.APK_MODE.RELEASE);
+    public final Completable setInternalReleaseMode(long projectId) {
+        return setEnvironmentVariable(projectId, Constants.GITLAB_ENV_VARS.PACKAGE_FOR, Constants.APK_MODE.INTERNAL_RELEASE);
     }
 
-    public final Completable packageMajorReleaseVersion(long projectId) {
-        return setEnvironmentVariable(projectId, Constants.GITLAB_ENV_VARS.RELEASE_MODE, Constants.RELEASE_MODE.MAJOR);
+    public final Completable packageInternalMajorReleaseVersion(long projectId) {
+        return setEnvironmentVariable(projectId, Constants.GITLAB_ENV_VARS.RELEASE_MODE, Constants.RELEASE_MODE.INTERNAL_MAJOR);
     }
 
-    public final Completable packageMinorReleaseVersion(long projectId) {
-        return setEnvironmentVariable(projectId,  Constants.GITLAB_ENV_VARS.RELEASE_MODE, Constants.RELEASE_MODE.MINOR);
+    public final Completable packageInternalMinorReleaseVersion(long projectId) {
+        return setEnvironmentVariable(projectId,  Constants.GITLAB_ENV_VARS.RELEASE_MODE, Constants.RELEASE_MODE.INTERNAL_MINOR);
     }
 
-    public final Completable packageFixReleaseVersion(long projectId) {
-        return setEnvironmentVariable(projectId, Constants.GITLAB_ENV_VARS.RELEASE_MODE, Constants.RELEASE_MODE.FIX);
+    public final Completable packageInternalFixReleaseVersion(long projectId) {
+        return setEnvironmentVariable(projectId, Constants.GITLAB_ENV_VARS.RELEASE_MODE, Constants.RELEASE_MODE.INTERNAL_FIX);
+    }
+    //
+    public final Completable setCustomerReleaseMode(long projectId) {
+        return setEnvironmentVariable(projectId, Constants.GITLAB_ENV_VARS.PACKAGE_FOR, Constants.APK_MODE.PRODUCTION_RELEASE);
+    }
+
+    public final Completable packageCustomerMajorReleaseVersion(long projectId) {
+        return setEnvironmentVariable(projectId, Constants.GITLAB_ENV_VARS.RELEASE_MODE, Constants.RELEASE_MODE.CUSTOMER_MINOR);
+    }
+
+    public final Completable packageCustomerMinorReleaseVersion(long projectId) {
+        return setEnvironmentVariable(projectId,  Constants.GITLAB_ENV_VARS.RELEASE_MODE, Constants.RELEASE_MODE.CUSTOMER_MINOR);
+    }
+
+    public final Completable packageCustomerFixReleaseVersion(long projectId) {
+        return setEnvironmentVariable(projectId, Constants.GITLAB_ENV_VARS.RELEASE_MODE, Constants.RELEASE_MODE.CUSTOMER_FIX);
     }
 }

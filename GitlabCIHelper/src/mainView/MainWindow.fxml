@@ -20,7 +20,7 @@
                 onAction="#onReloadGitlabProfileSettingsButtonClicked"
                 GridPane.columnIndex="0"
                 focusTraversable="false"
-                GridPane.rowIndex="1"/>
+                GridPane.rowIndex="0"/>
         <HBox spacing="25"
               alignment="center"
               GridPane.columnIndex="0"
@@ -29,11 +29,13 @@
                     fx:id="projectNameTextField"
                     disable="true"
                     maxWidth="Infinity"
+                    HBox.hgrow="ALWAYS"
                     promptText="Project name"/>
             <TextField
                     fx:id="projectIdTextField"
                     disable="true"
                     maxWidth="Infinity"
+                    HBox.hgrow="ALWAYS"
                     promptText="Project ID"/>
         </HBox>
         <ListView
@@ -54,17 +56,40 @@
               GridPane.columnIndex="0"
               GridPane.rowIndex="10">
             <Button
-                    fx:id="majorReleaseVersionButton"
-                    text="Set major version"
-                    onAction="#onMajorVersionButtonClicked"/>
+                    fx:id="majorInternalReleaseVersionButton"
+                    text="Set internal major version"
+                    maxWidth="Infinity"
+                    HBox.hgrow="ALWAYS"
+                    onAction="#onInternalMajorVersionButtonClicked"/>
             <Button
-                    fx:id="minorReleaseVersionButton"
-                    text="Set minor version"
-                    onAction="#onMinorVersionButtonClicked"/>
+                    fx:id="minorInternalReleaseVersionButton"
+                    maxWidth="Infinity"
+                    HBox.hgrow="ALWAYS"
+                    text="Set internal minor version"
+                    onAction="#onInternalMinorVersionButtonClicked"/>
             <Button
-                    fx:id="fixReleaseVersionButton"
-                    text="Set fix version"
-                    onAction="#onFixVersionButtonClicked"/>
+                    fx:id="fixInternalReleaseVersionButton"
+                    text="Set internal fix version"
+                    maxWidth="Infinity"
+                    HBox.hgrow="ALWAYS"
+                    onAction="#onInternalFixVersionButtonClicked"/>
+        </HBox>
+        <HBox spacing="10"
+              alignment="center"
+              GridPane.columnIndex="0"
+              GridPane.rowIndex="11">
+            <Button
+                    fx:id="majorCustomerReleaseVersionButton"
+                    text="Set customer major version"
+                    onAction="#onCustomerMajorVersionButtonClicked"/>
+            <Button
+                    fx:id="minorCustomerReleaseVersionButton"
+                    text="Set customer minor version"
+                    onAction="#onCustomerMinorVersionButtonClicked"/>
+            <Button
+                    fx:id="fixCustomerReleaseVersionButton"
+                    text="Set customer fix version"
+                    onAction="#onCustomerFixVersionButtonClicked"/>
         </HBox>
     </GridPane>
 </StackPane>

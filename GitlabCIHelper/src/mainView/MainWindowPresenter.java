@@ -42,7 +42,7 @@ public class MainWindowPresenter {
         }
     }
 
-    public void getMyGitlabProjects() {
+    void getMyGitlabProjects() {
         if (!noMoreItemsToLoad) {
             pageNumber ++;
             restClient
@@ -72,7 +72,7 @@ public class MainWindowPresenter {
         }
     }
 
-    public void configurePipelineForDebugMode(long projectId) {
+    void configurePipelineForDebugMode(long projectId) {
         gitlabEnvVariablesConfigurator
                 .setProfileInfoVars(projectId)
                 .andThen(Completable.mergeArray(restClient.setDebugMode(projectId), restClient.packageDebugVersion(projectId)))
@@ -97,10 +97,10 @@ public class MainWindowPresenter {
                 });
     }
 
-    public void configurePipelineForMajorReleaseMode(long projectId) {
+    void configurePipelineForInternalMajorReleaseMode(long projectId) {
         gitlabEnvVariablesConfigurator
                 .setProfileInfoVars(projectId)
-                .andThen(Completable.mergeArray(restClient.setReleaseMode(projectId), restClient.packageMajorReleaseVersion(projectId)))
+                .andThen(Completable.mergeArray(restClient.setInternalReleaseMode(projectId), restClient.packageInternalMajorReleaseVersion(projectId)))
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onSubscribe(Disposable disposable) {
@@ -121,10 +121,10 @@ public class MainWindowPresenter {
                 });
     }
 
-    public void configurePipelineForMinorReleaseMode(long projectId) {
+    void configurePipelineForInternalMinorReleaseMode(long projectId) {
         gitlabEnvVariablesConfigurator
                 .setProfileInfoVars(projectId)
-                .andThen(Completable.mergeArray(restClient.setReleaseMode(projectId), restClient.packageMinorReleaseVersion(projectId)))
+                .andThen(Completable.mergeArray(restClient.setInternalReleaseMode(projectId), restClient.packageInternalMinorReleaseVersion(projectId)))
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onSubscribe(Disposable disposable) {
@@ -145,10 +145,82 @@ public class MainWindowPresenter {
                 });
     }
 
-    public void configurePipelineForFixReleaseMode(long projectId) {
+    void configurePipelineForInternalFixReleaseMode(long projectId) {
         gitlabEnvVariablesConfigurator
                 .setProfileInfoVars(projectId)
-                .andThen(Completable.mergeArray(restClient.setReleaseMode(projectId), restClient.packageFixReleaseVersion(projectId)))
+                .andThen(Completable.mergeArray(restClient.setInternalReleaseMode(projectId), restClient.packageInternalFixReleaseVersion(projectId)))
+                .subscribe(new CompletableObserver() {
+                    @Override
+                    public void onSubscribe(Disposable disposable) {
+                        view.showLoader();
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        view.hideLoader();
+                        view.onSetPipelineMode();
+                    }
+
+                    @Override
+                    public void onError(Throwable throwable) {
+                        view.hideLoader();
+                        view.onSetPipelineModeFailure(throwable.getMessage());
+                    }
+                });
+    }
+    //
+    void configurePipelineForCustomerMajorReleaseMode(long projectId) {
+        gitlabEnvVariablesConfigurator
+                .setProfileInfoVars(projectId)
+                .andThen(Completable.mergeArray(restClient.setCustomerReleaseMode(projectId), restClient.packageCustomerMajorReleaseVersion(projectId)))
+                .subscribe(new CompletableObserver() {
+                    @Override
+                    public void onSubscribe(Disposable disposable) {
+                        view.showLoader();
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        view.hideLoader();
+                        view.onSetPipelineMode();
+                    }
+
+                    @Override
+                    public void onError(Throwable throwable) {
+                        view.hideLoader();
+                        view.onSetPipelineModeFailure(throwable.getMessage());
+                    }
+                });
+    }
+
+    void configurePipelineForCustomerMinorReleaseMode(long projectId) {
+        gitlabEnvVariablesConfigurator
+                .setProfileInfoVars(projectId)
+                .andThen(Completable.mergeArray(restClient.setCustomerReleaseMode(projectId), restClient.packageCustomerMinorReleaseVersion(projectId)))
+                .subscribe(new CompletableObserver() {
+                    @Override
+                    public void onSubscribe(Disposable disposable) {
+                        view.showLoader();
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        view.hideLoader();
+                        view.onSetPipelineMode();
+                    }
+
+                    @Override
+                    public void onError(Throwable throwable) {
+                        view.hideLoader();
+                        view.onSetPipelineModeFailure(throwable.getMessage());
+                    }
+                });
+    }
+
+    void configurePipelineForCustomerFixReleaseMode(long projectId) {
+        gitlabEnvVariablesConfigurator
+                .setProfileInfoVars(projectId)
+                .andThen(Completable.mergeArray(restClient.setCustomerReleaseMode(projectId), restClient.packageCustomerFixReleaseVersion(projectId)))
                 .subscribe(new CompletableObserver() {
                     @Override
                     public void onSubscribe(Disposable disposable) {

@@ -18,7 +18,7 @@ public class Main extends SingleInstanceApp {
         //
         Parent root = FXMLLoader.load(getClass().getResource("MainWindow.fxml"));
         primaryStage.setTitle("Gitlab CI pipeline configurator");
-        primaryStage.setScene(new Scene(root, 400, 400));
+        primaryStage.setScene(new Scene(root, 600, 450));
         primaryStage.setResizable(false);
         primaryStage.show();
     }
